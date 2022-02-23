@@ -10,7 +10,7 @@ namespace ProgamacaoEstruturada.ConsoleApp
             
 
             Console.WriteLine("Digite 10 valores Inteiros: ");
-            a
+            
 
             //Entrada e saida de valores digitados
             AdquirirValores(ref numerosrecebidos);
