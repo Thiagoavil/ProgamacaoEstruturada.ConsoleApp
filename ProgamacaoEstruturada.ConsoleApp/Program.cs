@@ -7,29 +7,34 @@ namespace ProgamacaoEstruturada.ConsoleApp
         static void Main(string[] args)
         {
             int[] numerosrecebidos = new int[10];
-
+            
 
             Console.WriteLine("Digite 10 valores Inteiros: ");
 
 
-
+            //Entrada e saida de valores digitados
             AdquirirValores(ref numerosrecebidos);
-
-            /*Console.WriteLine("Esses são os numeros digitados: ");
+            Console.WriteLine("\nEsses são os numeros digitados: ");
             MostrarValores(ref numerosrecebidos);
             
+
             int MenorNumero;
             MenorNumeroMet( numerosrecebidos, out MenorNumero);
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("O menor numero é: " + MenorNumero);
+            
 
             int maiornumero = 0;
             MaiorNumeroMet(ref numerosrecebidos, ref maiornumero);
+            Console.ForegroundColor= ConsoleColor.Green;
             Console.WriteLine("O maior numero é: " + maiornumero);
-            
-                          
+
+
+            Console.ForegroundColor = ConsoleColor.Blue;              
             Console.WriteLine("A média é : " + MediaDeValores(ref numerosrecebidos));
 
 
+            Console.ForegroundColor = ConsoleColor.Cyan;
             int[] x = TresValoresMaiores(ref numerosrecebidos);
             Console.Write("Esses são seus 3 maiores numeros: ");
             for (int i = 0; i < x.Length; i++)
@@ -38,15 +43,29 @@ namespace ProgamacaoEstruturada.ConsoleApp
             }
 
             
+            int[] arraydenegativos = ValoresNegativos(ref numerosrecebidos);
+            Array.Sort(arraydenegativos);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nEsses são os numeros negativos: ");
+            for(int i = 0;i < arraydenegativos.Length;i++)
+            {
+                Console.WriteLine(arraydenegativos[i]);
+            }
+            Console.ResetColor();
+
+
+            //Retirando numeros da sequência
             Console.WriteLine("Digite o numero que quer retirar: ");
             int numeroselecionado = Convert.ToInt32(Console.ReadLine());
-            int [] novoarray = RemoverItemDaSequencia(ref numerosrecebidos, ref numeroselecionado);
+            int[] novoarray = RemoverItemDaSequencia(ref numerosrecebidos, ref numeroselecionado);
             Array.Sort(novoarray);
-            for(int i = 0; i < novoarray.Length; i++)
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Sua nova sequência: ");
+            for (int i = 0; i < novoarray.Length; i++)
             {
                 Console.WriteLine(novoarray[i]);
-            }*/
-
+            }
+            Console.ResetColor();
 
 
             static int[] AdquirirValores(ref int[] numerosrecebidos)
@@ -96,9 +115,36 @@ namespace ProgamacaoEstruturada.ConsoleApp
                 return valores;
 
             }
-            static void ValoresNegativos(ref int[] numerosrecebidos)
+            static int [] ValoresNegativos(ref int[] numerosrecebidos )
             {
+                int totalnumerosnegativos = 0;
+                for(int i = 0;i < numerosrecebidos.Length;i++)
+                {
+                    if(numerosrecebidos[i]< 0)
+                    {
+                        totalnumerosnegativos++;
+                    }
+                    else
+                    {
 
+                    }
+                }
+
+                int [] arraynegativos =new int [totalnumerosnegativos];
+                int j = 0;
+                for(int i = 0; i < arraynegativos.Length;i++)
+                {
+                    if(numerosrecebidos [i]< 0)
+                    {
+                        arraynegativos[j] = numerosrecebidos[i];
+                        j++;
+                    }
+                    else
+                    {
+
+                    }
+                }
+                return arraynegativos;
             }
             static void MostrarValores(ref int[] numerosrecebidos)
             {
